@@ -21,7 +21,8 @@ class CreateCommoditiesTable extends Migration
             $table->float('balance');
             $table->integer('thickness');
             $table->integer('width');
-            $table->integer('warehouse_id');
+            $table->unsignedBigInteger('warehouse_id')->index();
+            $table->foreign('warehouse_id')->references('id')->on('warehouses');
             $table->timestamps();
         });
     }

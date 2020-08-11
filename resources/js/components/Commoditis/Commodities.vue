@@ -1,6 +1,19 @@
 <template>
     <div>
         <div class="row">
+            <div class="form-row form-center">
+                <div class="form-group col-md-6">
+                    <input type="text" name="created_at" placeholder="created" class="form-control" v-model="created_at" @keyup.enter="check">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" name="updated_at" placeholder="created"  class="form-control" v-model="updated_at" @keyup.enter="check">
+                </div>
+
+
+                <button class="btn btn-secondary btn-block" @click="check">Click</button>
+            </div>
+        </div>
+        <div class="row">
             <table class="table">
                 <thead>
                 <tr>
@@ -34,22 +47,27 @@
 
         </div>
 
+        <commodity-store></commodity-store>
+
     </div>
 </template>
 
 <script>
     import CommodityItem from "./CommodityItem";
     import Commodity from "./Commodity"
+    import CommodityStore from "./CommodityStore";
     export default {
         name: "Commodities",
         components: {
           CommodityItem,
-            Commodity
+            Commodity,
+            CommodityStore
         },
         data() {
             return {
-
-                commodity: null
+                commodity: null,
+                created_at:null,
+                updated_at: null
             }
         },
         created() {
@@ -60,10 +78,19 @@
             })
 
 
+        },
+        methods: {
+            check() {
+                alert('Hello!')
+            }
         }
+
     }
 </script>
 
 <style scoped>
-
+    .form-center {
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
 </style>

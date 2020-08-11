@@ -25,9 +25,16 @@ Route::get('warehouses', function (Request $request) {
    return Warehouses::all();
 });
 
-Route::get('commodities', 'Api\CommodityController@index');
+//Route::get('commodities', 'Api\CommodityController@index');
+//
+//Route::get('commodity/{id}', 'Api\CommodityController@show');
 
-Route::get('commodity/{id}', 'Api\CommodityController@show');
+Route::apiResource('commodities', 'Api\CommodityController')->only(['index', 'show', 'store']);
+
+Route::get('commodities/{commodity}/search', 'Api\CommoditySearchController')
+    ->name('commodities.search.show');
+
+
 
 //Route::get('warehouses/{id}/{commodity}', function (Request $request, $warehouseId, $commodityId) {
 //    dd($warehouseId, $commodityId);

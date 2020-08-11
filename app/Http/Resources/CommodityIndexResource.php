@@ -16,7 +16,12 @@ class CommodityIndexResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'commodity_name' => $this->commodity_name
+            'commodity_name' => $this->commodity_name,
+            'purchase_price' => $this->purchase_price,
+            'weight' => $this->weight,
+            'balance' => $this->balance,
+            'warehouse_id'=> $this->warehouse_id->warehouses->warehouse_name,
+            'created_at' => $this->created_at,
         ];
     }
 }
