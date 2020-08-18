@@ -5,6 +5,8 @@ import Commodities from "./components/Commoditis/Commodities";
 import Commodity from "./components/Commoditis/Commodity";
 import Characteristic from "./components/characteristics/Characteristic";
 import Contragents from "./components/Contragents/Contragents";
+import Orders from "./components/Orders/Orders";
+import OrderShow from "./components/Orders/OrderShow";
 
 const routes = [
     {
@@ -37,6 +39,16 @@ const routes = [
         path: "/contragents",
         component: Contragents,
         name: "contragents",
+    },
+    {
+        path: "/orders",
+        component: Orders,
+        name: "orders",
+    },
+    {
+        path: "/orders/:id",
+        component: OrderShow,
+        name: "order",
     },
 
 ];

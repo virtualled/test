@@ -18,5 +18,10 @@ class DatabaseSeeder extends Seeder
          $this->call(ContragentsContactsSeeder::class); //Контраген Контакты
          $this->call(ContragentsRequisitesSeeder::class); //Контраген Реквизиты
          $this->call(ContragentsTypeSeeder::class); //Контраген Типы
+         $this->call(OrdersSeeder::class); //Заказы
+         $this->call(OrdersStatusesSeeder::class); //Заказы Статусы
+         $this->call(OrdersUnitsSeeder::class); //Заказы Единицы
+        $this->call(OrdersProductsSeeder::class); //Заказы Продукт
+        $this->call(OrdersProductsDetailsSeeder::class); //Заказы Продукт Детали
     }
 }

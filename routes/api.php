@@ -42,3 +42,5 @@ Route::apiResource('warehouses', 'Api\WarehousesController');
 Route::apiResource('characteristics', 'Api\CharacteristicsController');
 
 Route::apiResource('contragents', 'Api\Contragents\ContragentsController');
+
+Route::apiResource('orders', 'Api\Orders\OrdersController');
