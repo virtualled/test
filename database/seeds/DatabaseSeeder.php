@@ -13,5 +13,10 @@ class DatabaseSeeder extends Seeder
     {
          $this->call(WarehousesTableSeeder::class); //Склады
          $this->call(CommodityTableSeeder::class); //Сырье
+         $this->call(CharacteristicsSeeder::class); //Характеристики
+         $this->call(ContragentsSeeder::class); //Контрагенты
+         $this->call(ContragentsContactsSeeder::class); //Контраген Контакты
+         $this->call(ContragentsRequisitesSeeder::class); //Контраген Реквизиты
+         $this->call(ContragentsTypeSeeder::class); //Контраген Типы
     }
 }

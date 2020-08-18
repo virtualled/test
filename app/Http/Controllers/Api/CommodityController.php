@@ -16,10 +16,6 @@ class CommodityController extends Controller
         return CommodityIndexResource::collection(
                 Commodity::all()
             );
-
-
-
-
     }
 
     public function show($id)

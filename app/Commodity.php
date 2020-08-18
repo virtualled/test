@@ -10,6 +10,16 @@ class Commodity extends Model
 
     public function warehouses()
     {
-         return $this->hasOne('App\Warehouses', 'id', 'warehouses_id');
+         return $this->hasOne('App\Warehouses', 'id', 'warehouse_id');
+    }
+
+    public function char_thick()
+    {
+        return $this->hasOne('App\Characteristics', 'id', 'thickness');
+    }
+
+    public function char_width()
+    {
+        return $this->hasOne('App\Characteristics', 'id', 'width');
     }
 }

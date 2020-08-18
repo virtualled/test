@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <b-jumbotron header="{{commodityName}}" lead="Bootstrap v4 Components for Vue.js 2">
+            <b-jumbotron header="" lead="Bootstrap v4 Components for Vue.js 2">
                 <p>For more information visit website</p>
                 <b-button variant="primary" href="#">More Info</b-button>
             </b-jumbotron>

@@ -20,12 +20,16 @@
                     <th scope="col">ID</th>
                     <th scope="col">Название сырья</th>
                     <th scope="col">Цена закупки</th>
+                    <th scope="col">Сумма</th>
                     <th scope="col">Вес</th>
                     <th scope="col">Остаток</th>
                     <th scope="col">Толщина</th>
                     <th scope="col">Ширина</th>
-                    <th scope="col">Склад</th>
                     <th scope="col">Дата поставки</th>
+                    <th scope="col">Производитель</th>
+                    <th scope="col">Владелец</th>
+                    <th scope="col">Склад</th>
+
                 </tr>
                 </thead>
                 <tbody v-for="(item, index) in commodity" :key="index" v-bind="commodity">
@@ -34,12 +38,16 @@
 
                     <td>{{ item.commodity_name }}</td>
                     <td>{{ item.purchase_price }}</td>
+                    <td>{{ item.purchase_sum }}</td>
                     <td>{{ item.weight }}</td>
                     <td>{{ item.balance }}</td>
                     <td>{{ item.thickness }}</td>
                     <td>{{ item.width }}</td>
+                    <td>{{ item.supply_date }}</td>
+                    <td>{{ item.manufacturer_id }}</td>
+                    <td>{{ item.owner_id }}</td>
                     <td>{{ item.warehouse_id }}</td>
-                    <td>{{ item.created_at }}</td>
+
 
                 </tr>
                 </tbody>
@@ -59,7 +67,7 @@
     export default {
         name: "Commodities",
         components: {
-          CommodityItem,
+            CommodityItem,
             Commodity,
             CommodityStore
         },
@@ -79,6 +87,7 @@
 
 
         },
+
         methods: {
             check() {
                 alert('Hello!')

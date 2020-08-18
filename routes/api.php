@@ -21,13 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('warehouses', function (Request $request) {
-   return Warehouses::all();
-});
-
 //Route::get('commodities', 'Api\CommodityController@index');
 //
-//Route::get('commodity/{id}', 'Api\CommodityController@show');
+Route::get('commodity/{id}', 'Api\CommodityController@show');
 
 Route::apiResource('commodities', 'Api\CommodityController')->only(['index', 'show', 'store']);
 
@@ -40,3 +36,9 @@ Route::get('commodities/{commodity}/search', 'Api\CommoditySearchController')
 //    dd($warehouseId, $commodityId);
 //    return Warehouses::findOrFail($warehouseId);
 //});
+
+Route::apiResource('warehouses', 'Api\WarehousesController');
+
+Route::apiResource('characteristics', 'Api\CharacteristicsController');
+
+Route::apiResource('contragents', 'Api\Contragents\ContragentsController');
