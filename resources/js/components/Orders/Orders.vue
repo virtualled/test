@@ -33,13 +33,19 @@
 
         </table>
 
-
+        <order-store></order-store>
     </div>
 </template>
 
 <script>
+    import OrderStore from "./OrderStore";
+
     export default {
         name: "Orders",
+        components:{
+          OrderStore,
+
+        },
         data() {
             return {
                 orders:[]

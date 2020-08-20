@@ -1,26 +1,35 @@
 <template>
     <div>
-        <h1>{{order.order_name}}</h1>
-        <h2>{{ order.order_client_id.contragent_name}} </h2>
+        <div class="order-top">
+            <router-link :to="{name: 'orders'}" class="btn btn-secondary btn-back">Обратно</router-link>
+            <h1>{{order.order_name}}</h1>
+            <h2>{{ order.order_client_id.contragent_name}} </h2>
+        </div>
+        <div v-if="order.products.length <= 0" class="order-no">
+            <h3>No products!</h3>
+        </div>
 
-        <div v-for="(product, index) in order.products" :key="index" class="box col-lg-3">
-            <div class="form-group block ">
+        <div v-else>
+            <div v-for="(product, index) in order.products" :key="index" class="box col-lg-3">
+                <div class="form-group block ">
 
-                <h4 class="form-control">Название: <span class="prod_text">{{ product.product_name}}</span></h4>
-                <h4 class="form-control">Количество: <span class="prod_text">{{ product.product_quantity}}</span></h4>
-                <h4 class="form-control">Ед. изм: <span class="prod_text">{{ product.product_unit_id}}</span></h4>
-                <h4 class="form-control">Цена: <span class="prod_text">{{ product.product_price}}</span></h4>
-                <h4 class="form-control">Сумма: <span class="prod_text">{{ product.product_sum}}</span></h4>
+                    <h4 class="form-control">Название: <span class="prod_text">{{ product.product_name}}</span></h4>
+                    <h4 class="form-control">Количество: <span class="prod_text">{{ product.product_quantity}}</span></h4>
+                    <h4 class="form-control">Ед. изм: <span class="prod_text">{{ product.product_unit_id}}</span></h4>
+                    <h4 class="form-control">Цена: <span class="prod_text">{{ product.product_price}}</span></h4>
+                    <h4 class="form-control">Сумма: <span class="prod_text">{{ product.product_sum}}</span></h4>
 
 
-                <div v-for="(detail, index) in product.details" :key="index" class="block">
-                    <span>Полоса: {{ detail.id }}</span>
-                    <span>Сумма: {{ detail.sum }}</span>
+                    <div v-for="(detail, index) in product.details" :key="index" class="block">
+                        <span>Полоса: {{ detail.id }}</span>
+                        <span>Сумма: {{ detail.sum }}</span>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
+
     </div>
 </template>
 
@@ -61,4 +70,18 @@
     .prod_text{
         font-weight: bold;
     }
+    .order-top{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+    }
+    .order-no{
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+    }
+    .order-no h3{
+        color: #9561e2;
+    }
+
 </style>

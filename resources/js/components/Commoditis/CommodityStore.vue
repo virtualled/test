@@ -8,6 +8,9 @@
                 <input type="text" class="form-control"  v-model="commodity.purchase_price" name="purchase_price" placeholder="purchase_price">
             </div>
             <div class="form-group">
+                <input type="text" class="form-control"  v-model="commodity.purchase_sum" name="purchase_sum" placeholder="purchase_sum">
+            </div>
+            <div class="form-group">
                 <input type="text" class="form-control"  v-model="commodity.weight" name="weight" placeholder="weight">
             </div>
             <div class="form-group">
@@ -48,11 +51,14 @@
                 commodity: {
                     commodity_name:'',
                     purchase_price:'',
+                    purchase_sum:'',
                     weight:'',
                     balance:'',
                     thickness:'',
                     width:'',
                     warehouse_id:'',
+                    manufacturer_id:1, //Добавить инпут
+                    owner_id: 1, //Добавить инпут
                 },
                 warehouses:[],
                 thickness:[],
@@ -94,15 +100,19 @@
                     .post('/api/commodities', {
                         commodity_name: this.commodity.commodity_name,
                         purchase_price: this.commodity.purchase_price,
+                        purchase_sum: this.commodity.purchase_sum,
                         weight: this.commodity.weight,
                         balance: this.commodity.balance,
                         thickness: this.commodity.thickness,
                         width: this.commodity.width,
                         warehouse_id: this.commodity.warehouse_id,
+                        manufacturer_id: this.commodity.manufacturer_id,
+                        owner_id: this.commodity.owner_id,
                     })
                     .then(response => {
                         this.commodity.commodity_name = '';
                         this.commodity.purchase_price = '';
+                        this.commodity.purchase_sum = '';
                         this.commodity.weight = '';
                         this.commodity.balance = '';
                         this.commodity.thickness = '';

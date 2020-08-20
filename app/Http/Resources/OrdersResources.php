@@ -23,7 +23,7 @@ class OrdersResources extends JsonResource
             'order_status_id' => $this->status_approve,
             'order_payment_id' => $this->status_approve,
             'order_client_id' => $this->client,
-            'products' => OrdersProductsResource::collection(OrdersProducts::all()),
+            'products' => OrdersProductsResource::collection(OrdersProducts::all() ),
             //Add manager
         ];
         return  array_merge($defaultData, $additionalData);

@@ -44,3 +44,4 @@ Route::apiResource('characteristics', 'Api\CharacteristicsController');
 Route::apiResource('contragents', 'Api\Contragents\ContragentsController');
 
 Route::apiResource('orders', 'Api\Orders\OrdersController');
+Route::apiResource('statuses', 'Api\Orders\OrdersStatusesController');

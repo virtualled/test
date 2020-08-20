@@ -3,18 +3,15 @@
 namespace App\Http\Controllers\Api\Orders;
 
 use App\Http\Controllers\Controller;
+use App\OrdersStatuses;
 use Illuminate\Http\Request;
 
 class OrdersStatusesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+       return  OrdersStatuses::all();
     }
 
     /**
