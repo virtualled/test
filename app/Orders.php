@@ -37,4 +37,10 @@ class Orders extends Model
         return $this->hasMany('App\OrdersProducts', 'product_order_id', 'id');
     }
     //Add manager
+
+    public function delete()
+    {
+        $this->products()->delete();
+        return parent::delete();
+    }
 }

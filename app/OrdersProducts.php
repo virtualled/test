@@ -13,6 +13,7 @@ class OrdersProducts extends Model
         'product_price',
         'product_sum',
         'product_name',
+        'product_order_id',
     ];
 
     public function details(){

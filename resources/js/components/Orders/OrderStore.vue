@@ -95,6 +95,7 @@
 <script>
     export default {
         name: "OrderStore",
+
         data() {
             return{
                 order:{
@@ -152,11 +153,13 @@
                         order_shipment_date:this.order.order_shipment_date,
                         order_client_id: this.order.order_client_id,
                         order_manager_id: this.order.order_manager_id,
-                        products: this.order.products
+                        products: this.order.products,
+
                     })
                     .then(response => {
                         console.log(response)
                     })
+
             },
             addProduct(){
                 this.order.products.push({

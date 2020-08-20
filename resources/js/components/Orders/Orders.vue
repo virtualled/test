@@ -12,6 +12,7 @@
                 <th scope="col">Статус</th>
                 <th scope="col">Оплата</th>
                 <th scope="col">Дата отгрузки</th>
+                <th scope="col">Edit</th>
 
             </tr>
             </thead>
@@ -25,6 +26,7 @@
                 <td>{{ item.order_status_id.order_status_value }}</td>
                 <td>{{ item.order_payment_id.order_status_value }}</td>
                 <td>{{ item.order_shipment_date }}</td>
+                <td><div class="btn btn-danger" @click.prevent="deleteOrder(item.id)">Del</div></td>
 
 
 
@@ -33,7 +35,7 @@
 
         </table>
 
-        <order-store></order-store>
+        <order-store ></order-store>
     </div>
 </template>
 
@@ -53,11 +55,24 @@
         },
         created() {
             //get Orders
-            axios
-                .get('/api/orders')
-                .then(response => {
-                    this.orders = response.data.data;
-                })
+            this.getOrders();
+        },
+        methods: {
+            getOrders(){
+                axios
+                    .get('/api/orders')
+                    .then(response => {
+                        this.orders = response.data.data;
+                    });
+            },
+
+            deleteOrder(id) {
+                axios
+                    .delete(`/api/orders/${id}`)
+                    .then(response => console.log(response));
+
+                this.getOrders();
+            }
         }
     }
 </script>

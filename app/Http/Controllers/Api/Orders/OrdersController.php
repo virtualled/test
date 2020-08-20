@@ -44,7 +44,9 @@ class OrdersController extends Controller
 
         if (count($request->products) > 0){
             foreach ($request->products as $product => $k){
+
                 $data2 = [
+
                     'product_name' => $k['product_name'],
                     'product_quantity' => $k['product_quantity'],
                     'product_unit_id' => $k['product_unit_id'],
@@ -53,8 +55,11 @@ class OrdersController extends Controller
                     'product_order_id' => $orderId,
                 ];
 
+
                 OrdersProducts::create($data2);
 
+
+//                dd($data2);
             }
         }
     }
@@ -85,6 +90,7 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        Orders::findOrFail($id)->delete();
     }
 }
