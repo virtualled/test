@@ -27,6 +27,9 @@
                         <b-form-group class="goBlock">
                             <router-link class="btn nav-button" :to="{name: 'orders'}">Заказы</router-link>
                         </b-form-group>
+                        <b-form-group class="goBlock">
+                            <router-link class="btn nav-button" :to="{name: 'production'}">Производство</router-link>
+                        </b-form-group>
 
 
 

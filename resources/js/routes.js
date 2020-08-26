@@ -7,6 +7,8 @@ import Characteristic from "./components/characteristics/Characteristic";
 import Contragents from "./components/Contragents/Contragents";
 import Orders from "./components/Orders/Orders";
 import OrderShow from "./components/Orders/OrderShow";
+import Production from "./components/Production/Production";
+import ProductionShow from "./components/Production/ProductionShow";
 
 const routes = [
     {
@@ -49,6 +51,16 @@ const routes = [
         path: "/orders/:id",
         component: OrderShow,
         name: "order",
+    },
+    {
+        path: "/production",
+        component: Production,
+        name: "production",
+    },
+    {
+        path: "/production/:id",
+        component: ProductionShow,
+        name: "production",
     },
 
 ];

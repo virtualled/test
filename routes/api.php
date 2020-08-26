@@ -45,3 +45,4 @@ Route::apiResource('contragents', 'Api\Contragents\ContragentsController');
 
 Route::apiResource('orders', 'Api\Orders\OrdersController');
 Route::apiResource('statuses', 'Api\Orders\OrdersStatusesController');
+Route::apiResource('production', 'Api\Production\ProductionController');
