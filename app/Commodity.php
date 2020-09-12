@@ -22,4 +22,12 @@ class Commodity extends Model
     {
         return $this->hasOne('App\Characteristics', 'id', 'width');
     }
+    public function manufacturer()
+    {
+        return $this->hasOne('App\Contragents', 'id', 'manufacturer_id');
+    }
+    public function commodity_owner()
+    {
+        return $this->hasOne('App\Contragents', 'id', 'owner_id');
+    }
 }

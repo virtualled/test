@@ -24,8 +24,8 @@ class CommodityIndexResource extends JsonResource
             'thickness' => $this->char_thick->characteristic_value,
             'width' => $this->char_width->characteristic_value,
             'supply_date' => $this->supply_date,
-            'manufacturer_id' => $this->manufacturer_id,
-            'owner_id' => $this->owner_id,
+            'manufacturer_id' => $this->manufacturer->contragent_name,
+            'owner_id' => $this->commodity_owner->contragent_name,
             'warehouse_id'=> $this->warehouses->warehouse_name,
             'created_at' => $this->created_at,
         ];

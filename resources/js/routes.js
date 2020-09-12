@@ -33,6 +33,12 @@ const routes = [
         name: "commodity",
     },
     {
+        path: "/commodity/:id/edit",
+        component: () => import('./components/Commoditis/CommodityEdit'),
+        name: 'commodityEdit'
+    },
+
+    {
         path: "/characteristics",
         component: Characteristic,
         name: "characteristic",

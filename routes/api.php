@@ -25,7 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //
 Route::get('commodity/{id}', 'Api\CommodityController@show');
 
-Route::apiResource('commodities', 'Api\CommodityController')->only(['index', 'show', 'store']);
+Route::apiResource('commodities', 'Api\CommodityController')->only(['index', 'show', 'store', 'update', 'destroy']);
 
 Route::get('commodities/{commodity}/search', 'Api\CommoditySearchController')
     ->name('commodities.search.show');

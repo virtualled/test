@@ -26,7 +26,7 @@ class CharacteristicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Characteristics::create($request->all());
     }
 
     /**
