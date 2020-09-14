@@ -49,6 +49,16 @@ const routes = [
         name: "contragents",
     },
     {
+        path: "/contragents/create",
+        component: () => import('./components/Contragents/ContragentsCreate'),
+        name: "contragentsCreate",
+    },
+    {
+        path: "/contragents/:id",
+        component: () => import('./components/Contragents/ContragentsShow'),
+        name: "contragentsShow",
+    },
+    {
         path: "/orders",
         component: Orders,
         name: "orders",

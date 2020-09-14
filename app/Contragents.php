@@ -22,6 +22,14 @@ class Contragents extends Model
     {
         return $this->hasOne('App\ContragentsRequisites', 'id', 'contragent_requisite_id');
     }
+    public function delete()
+    {
+        $this->contacts()->delete();
+        $this->requisites()->delete();
+
+        return parent::delete();
+    }
+
 }
 
 
