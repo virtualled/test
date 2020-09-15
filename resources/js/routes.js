@@ -59,6 +59,11 @@ const routes = [
         name: "contragentsShow",
     },
     {
+        path: "/contragents/:id/edit",
+        component: () => import('./components/Contragents/ContragentsEdit'),
+        name: "contragentsEdit",
+    },
+    {
         path: "/orders",
         component: Orders,
         name: "orders",

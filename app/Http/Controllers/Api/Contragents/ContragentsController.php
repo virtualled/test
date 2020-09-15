@@ -77,7 +77,39 @@ class ContragentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Getting ID`s for finging related contacts, types, requisite
+
+        $get_contragent_contact_id = Contragents::findOrFail($id)->contragent_contacts_id;
+        $get_contragent_requisite_id = Contragents::findOrFail($id)->contragent_requisite_id;
+        $get_contragent_type_id = Contragents::findOrFail($id)->contragent_type_id;
+
+        //Creates
+
+        $data_contargent = ['contragent_name' =>$request->contragent_name];
+
+        $data_contacts = [
+            'phone'   => $request->phone,
+            'mail   ' => $request->mail,
+            'web'     => $request->web,
+            'address' => $request->address,
+        ];
+
+        $data_requisite = [
+            'company_address' => $request->company_address  ,
+            'post_address'    => $request->post_address,
+            'inn'             => $request->inn,
+            'kpp'             => $request->kpp,
+            'account'         => $request->account,
+            'corr_acc'        => $request->corr_acc,
+            'bank_name'       => $request->bank_name
+        ];
+
+
+
+        Contragents::findOrFail($id)->update($data_contargent);
+        ContragentsContacts::findOrFail( $get_contragent_contact_id)->update($data_contacts);
+        ContragentsRequisites::findOrFail($get_contragent_requisite_id)->update($data_requisite);
+
     }
 
     /**

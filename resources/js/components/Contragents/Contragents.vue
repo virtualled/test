@@ -23,7 +23,7 @@
                 <td>{{ item.contragent_contacts_id.phone }}</td>
                 <td>{{ item.contragent_requisite_id.bank_name }}</td>
                 <td>
-                    <button class="btn  btn-success"> <b-icon icon="pencil-square"></b-icon></button>
+                    <router-link :to=" { name: 'contragentsEdit', params: {id: item.id}}" class="btn  btn-success"> <b-icon icon="pencil-square"></b-icon> </router-link>
                     <button class="btn  btn-danger" @click="deleteContragent(item)"> <b-icon icon="trash"></b-icon></button>
                 </td>
 

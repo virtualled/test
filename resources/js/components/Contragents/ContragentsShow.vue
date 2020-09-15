@@ -134,4 +134,7 @@
     .block-title{
         margin-right: 20px;
     }
+    @media  {
+        
+    }
 </style>
