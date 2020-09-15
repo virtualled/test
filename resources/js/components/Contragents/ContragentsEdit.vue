@@ -19,6 +19,19 @@
             </b-form-group>
 
             <b-form-group
+                label="Тип"
+                label-for="contragent_type_input_edit"
+            >
+                <b-form-select
+                    v-model="contragent.type"
+                >
+                    <b-form-select-option v-for="(type) in typeOptions" :value="type.id">
+                        {{  type.type_name}}
+                    </b-form-select-option>
+                </b-form-select>
+            </b-form-group>
+
+            <b-form-group
                 label="Телефон"
                 label-for="contragent_phone_input_edit"
             >
@@ -200,13 +213,23 @@
                     }
 
                 },
+                typeOptions: ''
 
             }
         },
         created() {
             this.getContragent();
+            this.getTypes();
         },
         methods: {
+            getTypes(){
+                axios
+                    .get('/api/contragenttypes')
+                    .then( response => {
+                        this.typeOptions = response.data.data;
+                        console.log(this.typeOptions)
+                    })
+            },
             getContragent(){
                 axios
                     .get(`/api/contragents/${this.$route.params.id}`)
@@ -214,7 +237,7 @@
                         const data = response.data.data;
                         this.contragent.id = data.id,
                         this.contragent.contragent_name = data.contragent_name,
-                        this.contragent.type = data.contragent_type_id.type ,
+                        this.contragent.type = data.contragent_type_id_id ,
 
                         this.contragent.contacts.phone = data.contragent_contacts_id.phone,
                         this.contragent.contacts.mail = data.contragent_contacts_id.mail,

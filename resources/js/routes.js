@@ -37,6 +37,11 @@ const routes = [
         component: () => import('./components/Commoditis/CommodityEdit'),
         name: 'commodityEdit'
     },
+    {
+        path: "/products",
+        component: () => import('./components/Products/ProductsIndex'),
+        name: "products"
+    },
 
     {
         path: "/characteristics",
@@ -67,6 +72,11 @@ const routes = [
         path: "/orders",
         component: Orders,
         name: "orders",
+    },
+    {
+        path:'/orders/create',
+        component: () => import('./components/Orders/OrderCreate'),
+        name: 'ordersCreate'
     },
     {
         path: "/orders/:id",

@@ -5,7 +5,7 @@
         <div class="figures">
             <div class="figure-box">
                 <h3>Заказы</h3>
-                <h1>Data</h1>
+                <h1>{{ ordersFigures }}</h1>
             </div>
 
             <div class="figure-box">
@@ -15,9 +15,10 @@
 
             <div class="figure-box">
                 <h3>Доход</h3>
-                <h1>Data</h1>
+                <h1>{{ orderSum }}</h1>
             </div>
         </div>
+
 
 
     </div>
@@ -25,7 +26,44 @@
 
 <script>
     export default {
-        name: "Home"
+        name: "Home",
+        data() {
+            return {
+                orders:'',
+                ordersFigures:'',
+                orderSum:''
+            }
+        },
+        created() {
+           this.getOrders();
+
+
+        },
+
+
+        methods: {
+            getOrders(){
+                axios
+                    .get('/api/orders')
+                    .then( response => {
+                        this.orders = response.data.data;
+                        this.countFigures(this.orders);
+                        console.log(this.orders)
+                    })
+            },
+            countFigures(item){
+                this.ordersFigures = item.length;
+                let sum = 0;
+                item.forEach( v => {
+                    sum += v.order_sum;
+                    console.log(sum)
+                })
+                this.orderSum = sum.toLocaleString('ru');
+
+            }
+
+        }
+
     }
 </script>
 
@@ -50,6 +88,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    .figure-box h1{
+        color: goldenrod;
     }
 
 

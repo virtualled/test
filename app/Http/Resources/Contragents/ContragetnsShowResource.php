@@ -18,6 +18,7 @@ class ContragetnsShowResource extends JsonResource
 
         $additionalData = [
             'contragent_type_id' => $this->type->type_name,
+            'contragent_type_id_id' => $this->type->id, //DELETE
             'contragent_contacts_id' => $this->contacts,
             'contragent_requisite_id' => $this->requisites
         ];

@@ -40,9 +40,11 @@ Route::get('commodities/{commodity}/search', 'Api\CommoditySearchController')
 Route::apiResource('warehouses', 'Api\WarehousesController');
 
 Route::apiResource('characteristics', 'Api\CharacteristicsController');
+Route::apiResource('contragenttypes', 'Api\Contragents\ContragentsTypeController');
 
 Route::apiResource('contragents', 'Api\Contragents\ContragentsController');
 
 Route::apiResource('orders', 'Api\Orders\OrdersController');
+Route::apiResource('products', 'Api\Products\ProductsController');
 Route::apiResource('statuses', 'Api\Orders\OrdersStatusesController');
 Route::apiResource('production', 'Api\Production\ProductionController');

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api\Contragents;
 use App\Contragents;
 use App\ContragentsContacts;
 use App\ContragentsRequisites;
+use App\ContragentsTypes;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Contragents\ContragentsEditResource;
 use App\Http\Resources\Contragents\ContragetnsIndexResourse;
 
 use App\Http\Resources\Contragents\ContragetnsShowResource;
@@ -67,6 +69,10 @@ class ContragentsController extends Controller
     {
         return new ContragetnsShowResource(Contragents::findOrFail($id));
     }
+    public function edit($id)
+    {
+        return new ContragentsEditResource(Contragents::findOrFail($id));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -85,7 +91,9 @@ class ContragentsController extends Controller
 
         //Creates
 
-        $data_contargent = ['contragent_name' =>$request->contragent_name];
+        $data_contargent = [
+            'contragent_name' =>$request->contragent_name,
+            'contragent_type_id' => $request->type];
 
         $data_contacts = [
             'phone'   => $request->phone,
@@ -109,6 +117,7 @@ class ContragentsController extends Controller
         Contragents::findOrFail($id)->update($data_contargent);
         ContragentsContacts::findOrFail( $get_contragent_contact_id)->update($data_contacts);
         ContragentsRequisites::findOrFail($get_contragent_requisite_id)->update($data_requisite);
+
 
     }
 

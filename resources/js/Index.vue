@@ -12,6 +12,10 @@
                         </b-form-group>
 
                         <b-form-group class="goBlock">
+                            <router-link class="btn nav-button" :to="{name: 'products'}">Номенклатура</router-link>
+                        </b-form-group>
+
+                        <b-form-group class="goBlock">
                             <router-link class="btn nav-button" :to="{name: 'warehouses'}">Warehouses</router-link>
                         </b-form-group>
 
