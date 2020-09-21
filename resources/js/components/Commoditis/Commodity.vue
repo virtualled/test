@@ -36,10 +36,11 @@
         created() {
             this.loading = true;
             const request = axios
-                .get(`/api/commodity/${this.$route.params.id}`)
+                .get(`/api/commodities/${this.$route.params.id}`)
                 .then( response => {
                     this.commodity = response.data.data;
                     this.loading =false;
+                    console.log(response)
                 })
         }
     }
