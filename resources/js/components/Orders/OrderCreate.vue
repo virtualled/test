@@ -49,6 +49,7 @@
             <div class="row">
 
                 <div class="card col-lg-5" v-if="isVisible" v-for="(product, k) in order.products" :key="k">
+                    foreach
                     <div class="card-body " >
                         <div  class="btn btn-danger" @click="deleteProduct(k, product)"> delete </div>
 
@@ -60,9 +61,9 @@
 
 
 
-                        <b-input-group-append type="text" class="form-control" v-model="order.products[k].product_name" name="product_name" placeholder="Номер">
+                            <b-input-group-append type="text" class="form-control" v-model="order.products[k].product_name" name="product_name" placeholder="Номер">
                             <b-form-input></b-form-input>
-                            <b-button variant="outline-success">Button</b-button>
+                            <b-button variant="outline-success" v-b-modal="'modal-1'" @click="saveID(k)">Button</b-button>
 
 
                         </b-input-group-append>
@@ -95,13 +96,23 @@
 
             <!--ADDDING-->
 
-            <div class="figures">
-                <div class="products-add" v-for="product in productsTest">
-                    <b-form-input disabled  :value="product.product_name"></b-form-input>
-                    <button @click.prevent="addCart(product)">add</button>
-                </div>
-            </div>
+<!--            <div class="figures">-->
+<!--                <div class="products-add" v-for="product in productsTest">-->
+<!--                    <b-form-input disabled  :value="product.product_name"></b-form-input>-->
+<!--                    <button @click.prevent="addCart(product)">add</button>-->
+<!--                </div>-->
+<!--            </div>-->
 
+
+            // MODAL
+            <b-button v-b-modal.modal-1>Launch demo modal</b-button>
+
+            <b-modal id="modal-1" title="BootstrapVue" >
+                <div class="figures" v-for="product in productsTest" :key="product.id">
+                    <p>{{product.product_name}}</p>
+                    <button class="btn btn-success" @click="pushProductName(product)">Add</button>
+                </div>
+            </b-modal>
 
 
 
@@ -135,6 +146,7 @@
                 },
 
                 productsTest:[],
+                productsID:'',
 
                 statuses:[],
                 payments:[],
@@ -225,7 +237,18 @@
             addCart(item) {
                 this.order.products.push({...this.order.products, ...item})
                 console.log(this.order.products)
+            },
+
+
+            pushProductName(name) {
+                this.order.products[this.productsID].product_name = name.product_name;
+                this.$bvModal.hide('modal-1')
+            },
+            saveID(id){
+                this.productsID = id;
+                console.log(id)
             }
+
         }
 
     }

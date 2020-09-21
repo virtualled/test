@@ -91,7 +91,7 @@ const routes = [
     {
         path: "/production/:id",
         component: ProductionShow,
-        name: "production",
+        name: "productionShow",
     },
 
 ];

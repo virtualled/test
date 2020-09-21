@@ -21,6 +21,8 @@ class CreateOrdersProductsTable extends Migration
             $table->float('product_price');
             $table->float('product_sum');
             $table->integer('product_order_id');
+            $table->integer('product_order_warehouse_id')->nullable();
+
             $table->timestamps();
         });
     }

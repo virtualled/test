@@ -43,6 +43,7 @@ Route::apiResource('characteristics', 'Api\CharacteristicsController');
 Route::apiResource('contragenttypes', 'Api\Contragents\ContragentsTypeController');
 
 Route::apiResource('contragents', 'Api\Contragents\ContragentsController');
+//Route::get('commodity/{id}', 'Api\Contragents\ContragentsControllerr@show');
 
 Route::apiResource('orders', 'Api\Orders\OrdersController');
 Route::apiResource('products', 'Api\Products\ProductsController');

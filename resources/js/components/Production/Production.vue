@@ -6,12 +6,13 @@
                  <div class="card-body body-shape" v-for="(order, index) in orders" :key="index">
 
                         <div class="form-group">
-                            <router-link :to="{name: 'production' , params:{id: order.id}}">
+                            <router-link :to="{name: 'productionShow' , params:{id: order.id}}">
                             <p>Заказ: <span>{{ order.order_name }}</span></p>
                             <p>Клиент: <span>{{ order.order_client_id.contragent_name }}</span></p>
                             <p>Дата: <span>{{ order.order_shipment_date }}</span></p>
                             </router-link>
                         </div>
+
 
                 </div>
             </div>
