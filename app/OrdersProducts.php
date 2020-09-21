@@ -19,4 +19,8 @@ class OrdersProducts extends Model
     public function details(){
         return $this->hasMany('App\OrdersProductsDetails', 'product_id', 'id');
     }
+
+    public function commodities(){
+        return $this->belongsToMany('App\Commodity', 'orders_commodities', 'product_id', 'commodities_id'); //
+    }
 }

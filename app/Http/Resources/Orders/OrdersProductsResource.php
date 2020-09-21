@@ -17,7 +17,8 @@ class OrdersProductsResource extends JsonResource
         $defaultData =  parent::toArray($request);
 
         $additionalData = [
-            'details' => $this->details
+            'details' => $this->details,
+            'commodities' => $this->commodities
         ];
 
         return array_merge($defaultData, $additionalData);

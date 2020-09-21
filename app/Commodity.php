@@ -20,4 +20,7 @@ class Commodity extends Model
     {
         return $this->hasOne('App\Contragents', 'id', 'owner_id');
     }
+    public function products(){
+        return $this->belongsToMany('App\OrdersProducts','orders_commodities', 'commodities_id', 'product_id'); //
+    }
 }

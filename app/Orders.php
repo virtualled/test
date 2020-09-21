@@ -34,7 +34,7 @@ class Orders extends Model
 
     public function products()
     {
-        return $this->hasMany('App\OrdersProducts', 'product_order_id', 'id');
+        return $this->hasMany('App\OrdersProducts', 'product_order_id', 'id')->with('commodities');
     }
     //Add manager
 

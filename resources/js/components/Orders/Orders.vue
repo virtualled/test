@@ -63,6 +63,7 @@
                     .then(response => {
                         this.orders = response.data.data;
                     });
+                console.log(this.orders)
             },
 
             deleteOrder(id) {
