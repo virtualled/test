@@ -28,4 +28,15 @@ class CommodityController extends Controller
         Commodity::create($request->all());
 
     }
+
+    public function update(Request $request, $id)
+    {
+        $commodity = Commodity::findOrfail($id)->update( $request->all());
+
+
+    }
+    public function destroy($id)
+    {
+        Commodity::findOrFail($id)->delete();
+    }
 }

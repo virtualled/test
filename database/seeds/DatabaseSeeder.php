@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
          $this->call(OrdersUnitsSeeder::class); //Заказы Единицы
         $this->call(OrdersProductsSeeder::class); //Заказы Продукт
         $this->call(OrdersProductsDetailsSeeder::class); //Заказы Продукт Детали
+        $this->call(ProductsSeeder::class); //Заказы Продукт Детали
     }
 }

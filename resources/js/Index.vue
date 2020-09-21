@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-button v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
-        <b-sidebar id="sidebar-1" title="Sidebar" shadow>
+        <b-sidebar id="sidebar-1" title="Sidebar" shadow >
             <div class="px-3 py-2">
                 <nav>
                     <b-nav virtical>
@@ -9,6 +9,10 @@
 
                                 <router-link class="navbar-brand goColor" :to="{name: 'home'}">Home</router-link>
 
+                        </b-form-group>
+
+                        <b-form-group class="goBlock">
+                            <router-link class="btn nav-button" :to="{name: 'products'}">Номенклатура</router-link>
                         </b-form-group>
 
                         <b-form-group class="goBlock">
@@ -26,6 +30,9 @@
                         </b-form-group>
                         <b-form-group class="goBlock">
                             <router-link class="btn nav-button" :to="{name: 'orders'}">Заказы</router-link>
+                        </b-form-group>
+                        <b-form-group class="goBlock">
+                            <router-link class="btn nav-button" :to="{name: 'production'}">Производство</router-link>
                         </b-form-group>
 
 

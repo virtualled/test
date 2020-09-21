@@ -2,6 +2,8 @@
     <div>
        <h1>Заказы</h1>
 
+        <router-link :to="{ name: 'ordersCreate'}" class="btn btn-outline-warning"> Создать заказ </router-link>
+
         <table class="table">
             <thead>
             <tr>
@@ -35,19 +37,16 @@
 
         </table>
 
-        <order-store ></order-store>
+
     </div>
 </template>
 
 <script>
-    import OrderStore from "./OrderStore";
+
 
     export default {
         name: "Orders",
-        components:{
-          OrderStore,
 
-        },
         data() {
             return {
                 orders:[]

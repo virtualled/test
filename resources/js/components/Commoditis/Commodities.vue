@@ -47,6 +47,15 @@
                     <td>{{ item.manufacturer_id }}</td>
                     <td>{{ item.owner_id }}</td>
                     <td>{{ item.warehouse_id }}</td>
+                    <td>
+                        <router-link :to="{ name: 'commodityEdit', params: { id: item.id}}">
+                            <button class="btn-success btn">  <b-icon icon="pencil-square"></b-icon>
+                            </button>
+                        </router-link></td>
+                    <td>
+                        <button class="btn btn-danger" @click="deleteCommodity(item.id)">
+                            <b-icon icon="trash"></b-icon>
+                        </button></td>
 
 
                 </tr>
@@ -79,16 +88,28 @@
             }
         },
         created() {
-            const request = axios
-            .get('/api/commodities')
-            .then(response => {
-                this.commodity = response.data.data;
-            })
 
+            this.getCommodities();
 
         },
 
         methods: {
+            getCommodities() {
+                const request = axios
+                    .get('/api/commodities')
+                    .then(response => {
+                        this.commodity = response.data.data;
+                    })
+            },
+
+            deleteCommodity(id){
+                axios
+                    .delete(`/api/commodities/${id}`)
+                    .then( response => {
+                        this.getCommodities();
+                    })
+            },
+
             check() {
                 alert('Hello!')
             }

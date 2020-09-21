@@ -25,7 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //
 Route::get('commodity/{id}', 'Api\CommodityController@show');
 
-Route::apiResource('commodities', 'Api\CommodityController')->only(['index', 'show', 'store']);
+Route::apiResource('commodities', 'Api\CommodityController')->only(['index', 'show', 'store', 'update', 'destroy']);
 
 Route::get('commodities/{commodity}/search', 'Api\CommoditySearchController')
     ->name('commodities.search.show');
@@ -40,8 +40,12 @@ Route::get('commodities/{commodity}/search', 'Api\CommoditySearchController')
 Route::apiResource('warehouses', 'Api\WarehousesController');
 
 Route::apiResource('characteristics', 'Api\CharacteristicsController');
+Route::apiResource('contragenttypes', 'Api\Contragents\ContragentsTypeController');
 
 Route::apiResource('contragents', 'Api\Contragents\ContragentsController');
+//Route::get('commodity/{id}', 'Api\Contragents\ContragentsControllerr@show');
 
 Route::apiResource('orders', 'Api\Orders\OrdersController');
+Route::apiResource('products', 'Api\Products\ProductsController');
 Route::apiResource('statuses', 'Api\Orders\OrdersStatusesController');
+Route::apiResource('production', 'Api\Production\ProductionController');

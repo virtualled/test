@@ -26,7 +26,7 @@ class CharacteristicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Characteristics::create($request->all());
     }
 
     /**
@@ -49,7 +49,7 @@ class CharacteristicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Characteristics::findOrFail($id)->update($request->all());
     }
 
     /**
@@ -60,6 +60,6 @@ class CharacteristicsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Characteristics::findOrFail($id)->delete();
     }
 }
